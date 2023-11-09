@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allinonetool.com - File Conversion and Compression</title>
+    <!-- box icons cdn link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="description" content=" the platform that makes it easy to convert and edit all files.and yes, it's free. ">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #232D3F;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #B0A695;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid #F3EEEA;
+            border-radius: 5px;
+            background-color: #1F1717;
+            color: #FFF6F6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #80B3FF;
+            color: white;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div>
+
+
+        <img src="https://pbs.twimg.com/media/F-dTBcDb0AAzG2K?format=png&name=small" alt="Logo" style="width:250px;height:220px;">
+        <h2 style="color:ghostwhite;">Tools</h2>
+        <ul>
+            <li><a href="/jpgtopng">JPG to PNG convert</a></li>
+            <li><a href="/pngtojpg">PNG to JPG convert</a></li>
+            <li><a href="/bmptopng">BMP to PNG convert</a></li>
+            <li><a href="/webptopng">WEBP to PNG convert</a></li>
+            <li><a href="/compresspdf">Compress PDF</a></li>
+            <li><a href="/compressjpg">JPG Compress</a></li>
+            <li><a href="/compresspng">PNG Compress</a></li>
+        </ul>
+    </div>
+
+<script>
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+
+
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+</script>
+
+</body>
+</html>

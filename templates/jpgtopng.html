@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPG to PNG </title>
+    <style>
+        body {
+    font-family: "Times New Roman", sans-serif;
+    background-color: #776B5D; /* Background color for the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff; /* Background color for the form container */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #fff;
+}
+
+button {
+    background-color: #007BFF; /* Background color for the button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Change color on hover */
+}
+
+    </style>
+</head>
+<body>
+    <h1 style="color:ghostwhite;">JPG to PNG </h1>
+    <form action="/api/jpgtopng" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <input type="file" name="image" accept=".jpg, .jpeg" id="imageInput" required >
+        <br>
+        <Button type="submit">
+                Convert to PNG
+        </Button>
+    </form>
+
+    <p id="errorText" style="color: red;"></p>
+
+    <script>
+
+        function validateForm() {
+            var imageInput = document.getElementById('imageInput');
+            var errorText = document.getElementById('errorText');
+
+            // Check if an image is selected
+            if (!imageInput.files || imageInput.files.length === 0) {
+                errorText.textContent = 'Please select an image.';
+                return false;
+            }
+
+            // Check if the selected file is a JPG image
+            var selectedFile = imageInput.files[0];
+            var fileType = selectedFile.type;
+            if (fileType !== 'image/jpeg' && fileType !== 'image/jpg') {
+                errorText.textContent = 'Please select a JPG image.';
+                return false;
+            }
+
+            // Check if the file size is less than 5 MB (5 * 1024 * 1024 bytes)
+            var maxSize = 5 * 1024 * 1024;
+            if (selectedFile.size > maxSize) {
+                errorText.textContent = 'The selected image is too large. Please choose an image smaller than 5 MB.';
+                return false;
+            }
+
+            // Reset the error message if validation passes
+            errorText.textContent = '';
+
+            return true;
+        }
+    </script>
+</body>
+</html>

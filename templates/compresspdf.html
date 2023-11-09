@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress PDF</title>
+    <style>
+        body {
+    font-family: "Times New Roman", sans-serif;
+    background-color: #776B5D; /* Background color for the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff; /* Background color for the form container */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #fff;
+}
+
+button {
+    background-color: #007BFF; /* Background color for the button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Change color on hover */
+}
+
+    </style>
+</head>
+<body>
+    <h1 style="color:ghostwhite;">Compress PDF</h1>
+    <form action="/api/compresspdf" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <input type="file" name="pdf" accept=".pdf" id="pdfInput" required>
+        <br>
+        <button type="submit">Compress PDF</button>
+    </form>
+
+    <p id="errorText" style="color: red;"></p>
+
+    <script>
+        function validateForm() {
+            var pdfInput = document.getElementById('pdfInput');
+            var errorText = document.getElementById('errorText');
+
+            // Check if a file is selected
+            if (!pdfInput.files || pdfInput.files.length === 0) {
+                errorText.textContent = 'Please select a PDF file.';
+                return false;
+            }
+
+            // Check if the selected file is a PDF
+            var selectedFile = pdfInput.files[0];
+            var fileType = selectedFile.type;
+            if (fileType !== 'application/pdf') {
+                errorText.textContent = 'Please select a PDF file.';
+                return false;
+            }
+
+            // Check if the file size is less than 10 MB (10 * 1024 * 1024 bytes)
+            var maxSize = 10 * 1024 * 1024;
+            if (selectedFile.size > maxSize) {
+                errorText.textContent = 'The selected PDF file is too large. Please choose a PDF file smaller than 10 MB.';
+                return false;
+            }
+
+            // Reset the error message if validation passes
+            errorText.textContent = '';
+
+            return true;
+        }
+    </script>
+</body>
+</html>
