@@ -3,6 +3,7 @@ import os
 from io import BytesIO
 from PIL import Image
 from flask import *
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 
@@ -238,4 +239,6 @@ def compress_png():
 
 
 if __name__ == '__main__':
+     http_server = WSGIServer (('', 5000), app)
+     http_server.serve_forever()
     app.run(debug=True)
