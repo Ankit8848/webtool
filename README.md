@@ -43,6 +43,6 @@ Please ensure that your dataset adheres to the guidelines and standards defined 
 
 ## License 📝
 
-Webtool is released under the [GNU](./LICENSE.md). 📄
+Webtool is released under the [GNU](./LICENSE). 📄
 
 Feel free to contribute and make use of the Webtool platform to collaborate and explore diverse datasets for your projects! 🌟
