@@ -1,11 +1,8 @@
-# webtool
-This will help to convert files from one format to another.
-
 <div align="center">
 
 # Webtool 🚀
 
-Webtool is an open-source project that aims to create a collaborative platform for gathering and sharing a wide variety of datasets. It provides a centralized repository where individuals and organizations can contribute, discover, and collaborate on diverse datasets for various domains. 📊📚
+Webtool is an open-source project that aims to create a collaborative platform for gathering and sharing a wide variety of datasets.This will help to convert files from one format to another. It provides a centralized repository where individuals and organizations can contribute, discover, and collaborate on diverse datasets for various domains. 📊📚
 
 </div>
 
