@@ -4,9 +4,8 @@
 
 Webtool is an open-source project that aims to  help to convert files from one format to another. It provides a repository where individuals and organizations can contribute, discover, and collaborate. 📊📚
 
-<a href="https://twitter.com/Ankitkumar8848/status/1731710548700451105?t=ggB2BsQ9NRa7X1JjGunuGw&s=19">
-  <img src="dashboard" alt="Visit the Webtool site" />
-</a>
+
+  <img src="https://twitter.com/Ankitkumar8848/status/1731710548700451105?t=ggB2BsQ9NRa7X1JjGunuGw&s=19">
 
 </div>
 
